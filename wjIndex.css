@@ -1,0 +1,331 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+/*各浏览器显示不同，去掉蓝色边框*/
+fieldset, img,  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+/*去掉行内替换元素空白缝隙*/
+select, input {
+    vertical-align: middle;
+}
+
+/*去掉行内替换元素空白缝隙*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+/*防止拖动 影响布局*/
+textarea {
+    resize: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*宋体 unicode */
+    color: #666;
+    background: #fff;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C81623;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+/*最外层盒子开始*/
+#wj_wrap{
+    width: 1349px;
+    height: 650px;
+    margin:0 auto;
+    position: relative;
+}
+#wj_banner{
+    width: 1024px;
+    height: 554px;
+    background-image:url(images/02.jpg);
+    margin:0 auto;
+    padding-top: 52px;
+
+}
+/*标题*/
+#wj_title{
+    font:36px "微软雅黑";
+    color:darkblue;
+    margin: 0px auto;
+    width: 300px;
+    height: 30px;
+}
+/*问卷核心盒子*/
+
+#wj_wrap .wj-wrapper {
+    width: 1000px;
+    height: 475px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+/*上层的ul*/
+#wj_wrap .wj-tab {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    height: 36px;
+    width: 250px;
+}
+
+#wj_wrap .wj-tab li {
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+    border-top: 4px solid #fff;
+}
+
+#wj_wrap .wj-tab span {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    background: #ddd;
+    width: 1px;
+    height: 14px;
+    overflow: hidden;
+}
+
+#wj_wrap .wj-products {
+    width: 1002px;
+    border: 1px solid #ddd;
+    height: 476px;
+    background: url("images/xia.jpg");
+    /*background-color: silver;*/
+    border-radius: 5px 36px 0 0;
+}
+/*products下的主要盒子*/
+#wj_wrap .wj-products .wj-main {
+    float: left;
+    display: none;
+}
+/*选中的类*/
+#wj_wrap .wj-products  .wj-selected {
+    display: block;
+}
+
+#wj_wrap #wj_ulog  {
+    font: 18px "宋体";
+    margin:50px auto;
+    /*color: red;*/
+}
+/*用户名输入框*/
+#wj_ulog #wj_username{
+    width: 200px;
+    height: 24px;
+    padding-left: 10px;
+    color:silver;
+}
+#wj_ulog #wj_pwd,#wj_Main_Email,#wj_main_qq,#wj_main_tel,#wj_main_phone{
+    width: 200px;
+    height: 24px;
+    padding-left: 10px;
+}
+#wj_ulog #wj_pwd{
+    color:#aaa;
+}
+#wj_ulog .strengthLv0 {
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+#wj_ulog .strengthLv1 {
+    background: red;
+
+    height: 6px;
+    width: 40px;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+#wj_ulog .strengthLv2 {
+    background: orange;
+    height: 6px;
+    width: 80px;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+#wj_ulog .strengthLv3 {
+    background: green;
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+#strengthLevel{
+    display:inline-block;
+    height: 6px;
+}
+/*注册按钮*/
+/*#wj_btnLog{*/
+    /*width: 80px;*/
+    /*height: 30px;*/
+    /*margin:0 auto;*/
+/*}*/
+/*正则表达式和判断类*/
+.wj-wrong {
+    color: red
+}
+
+.wj-right {
+    color: green;
+}
+/*被选中的ul下的li标签*/
+#wj_banner .active {
+    background-color: lightskyblue;
+    font-size: 16px;
+}
+
+
+/*用户评价内容*/
+#wj_logName{
+    margin: 10px 0 0 10px;
+    font-size: 24px;
+    color:black;
+}
+#wj_judge_content p{
+    font-size: 16px;
+    color:black;
+}
+#wj_logName span{
+    color:red;
+    font:26px "微软雅黑";
+}
+
+#wj_judge_content select {
+    width: 180px;
+    background-color:cornsilk;
+    height: 150px;
+    font-size: 16px;
+    color:darkgoldenrod;
+}
+/*用户评价的按钮*/
+#wj_judge_content .wj-btn-box {
+    /*width: 30px;*/
+    display: inline-block;
+    padding-top: 30px;
+    vertical-align: top;
+}
+#wj_judge_content .wj-btn-box button{
+    width: 60px;
+    height: 20px;
+    margin-top: 5px;
+    font-size: 12px;
+    /*font-weight: 700;*/
+    cursor: pointer;
+}
+#wj_pro_tarea{
+    margin-top: 8px;
+}
+/*星级评分开始*/
+#wj_comment{
+    margin-top: 15px;
+}
+#wj_comment .comment li{
+    float: left;
+    font-size: 30px;
+    margin-top: 15px;
+}
+#wj_comment span{
+    display:inline-block;
+    font-size: 18px;
+    margin-top: 15px;
+    color: red;
+}
+/*星级评分结束*/
+
+/*提交按钮*/
+#wj_pro_tijiao,#wj_backTofirst{
+    width: 120px;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: url("images/bgc.png") center;
+}
+
+/*提交按钮*/
+#wj_tijiao{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    right: 170px;
+    bottom: 16px;
+    background-color: gold;
+    display:none;
+    padding:60px 30px 60px 30px;
+    font-size: 16px;
+    color:blue;
+    opacity: 0.8;
+}
+#wj_closeBtn{
+    position: absolute;
+    right: 5px;
+    bottom:136px;
+}
+
+
+

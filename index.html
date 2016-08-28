@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <mate name="Keywords" content="传智播客,前端第六期,右侧7排"></mate>
+    <mate name="description" content="传智播客前端第六期右侧7排小组"></mate>
+    <title>您身边的前端专家-传智播客前端第六期右侧7排小组</title>
+    <link rel="stylesheet" href="css/slidecss.css"/>
+    <link href="style/base.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/案例.css"/>
+    <link rel="stylesheet" href="css/anstyle.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/anjs.js"></script>
+    <script>
+        $(window).load(function () {
+            var flag = false;
+
+            function hidecom() {
+                $("#slidediannao").hide();
+                $("#imdltp1").hide();
+                $("#imdltp2").hide();
+                $("#imdltp3").hide();
+                $("#imdltp4").hide();
+                $("#imdltp5").hide();
+            }
+
+            function showcom() {
+                $("#slidediannao").css("display", "block");
+                $("#imdltp1").css("display", "block");
+                $("#imdltp2").css("display", "block");
+                $("#imdltp3").css("display", "block");
+                $("#imdltp4").css("display", "block");
+                $("#imdltp5").css("display", "block");
+            }
+
+            function fadecom() {
+                hidecom()
+                $("#slidediannao").fadeIn(400, function () {
+                    $("#imdltp1").fadeIn(400, function () {
+                        $("#imdltp2").fadeIn(400, function () {
+                            $("#imdltp3").fadeIn(400, function () {
+                                $("#imdltp4").fadeIn(400, function () {
+                                    $("#imdltp5").fadeIn(400, function () {
+                                        flag = true;
+                                        showcom()
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            };
+
+            var slidepic = 0;
+            var windowH = $(window).height();
+            var windowW = $(window).width();
+            $("#slidebox").css("height", windowH);
+            $(".slidescreen").css("height", windowH);
+            $("#slideimg>li>img").css("height", windowH);
+            $("#slideimg>li>img").css("width", windowW);
+            $("#navpageimg>img").css("height", windowH);
+            $("#navpageimg>img").css("width", windowW);
+            var slideW = $("#slideimg>li>img").css("width");
+            $("#slideleft").click(function () {
+                if (flag) {
+                    flag = false;
+                    if (slidepic == 0) {
+                        $("#slideimg").css("left", -(slideLis.length) * parseInt(slideW) + "px");
+                        slidepic = slideLis.length;
+                    }
+                    $("#slideol>li").removeClass("current");
+                    slidepic--
+                    $("#slideol>li").eq(slidepic).addClass("current");
+                    //定义位移值
+                    var target = -slidepic * parseInt(slideW);
+                    //移动图片
+                    animatezdy($("#slideimg")[0], target, function () {
+                        flag = true;
+                    })
+                }
+            })
+            $("#slideright").click(function () {
+                cl();
+            })
+            var slideLis = $("#slideimg").children();
+            for (var i = 0; i < slideLis.length; i++) {
+                var li = $("<li></li>");
+                $("#slideol").append(li);
+            }
+            var firstimg = $("#slideimg").children().eq(0).clone(true);
+            $("#slideimg").append(firstimg);
+            fadecom();
+            $("#slideol>li").eq(0).addClass("current");
+            $("#slideol>li").mouseenter(function () {
+                $("#slideol>li").removeClass("current");
+                $(this).addClass("current");
+                var target = 0;
+                if (slidepic == slideLis.length) {
+                    $("#slideimg").css("left", 0);
+                }
+                slidepic = $(this).index();
+//                console.log(slidepic);
+                target = -slidepic * parseInt(slideW);
+//                console.log(target);
+                animatezdy($("#slideimg")[0], target)
+            })
+            function animatezdy(dom, target, fn) {
+                var flag = true;
+                var obj = $(dom);
+                clearInterval(dom.timer);
+                dom.timer = setInterval(function () {
+                    var leader = parseInt(obj.css("left"));
+//                    console.log(leader);
+//                     console.log(obj.offset().left);
+//                    console.log(obj.position().left)
+                    var step = 20;
+                    step = obj.offset().left < target ? step : -step;
+                    leader = leader + step;
+                    if (leader != target) {
+                        flag = false;
+                    } else {
+                        flag = true;
+                    }
+                    if (Math.abs((obj.offset().left) - target) > Math.abs(step)) {
+//                        obj.css("left", (leader+"px"))
+                        obj.offset({left: leader});
+                    } else {
+//                        obj.css("left",(target+"px"));
+                        obj.offset({left: target});
+                        clearInterval(dom.timer);
+                    }
+                }, 5)
+                if (flag) {
+                    if (fn) {
+                        fn()
+                    }
+                }
+            }
+
+            function cl() {
+                if (flag) {
+                    flag = false;
+                    if (slidepic == slideLis.length) {
+                        $("#slideimg").css("left", 0);
+                        slidepic = 0;
+                    }
+                    //重置方块列表ol
+//                for (var j = 0; j < olLis.length; j++) {
+//                    olLis[j].className = "";
+//                }
+                    //自动增加pic值
+                    $("#slideol>li").removeClass("current");
+                    slidepic++
+                    //统一下部方块和图片计数
+
+                    if (slidepic == slideLis.length) {
+                        $("#slideol>li").eq(0).addClass("current");
+                    } else {
+                        $("#slideol>li").eq(slidepic).addClass("current");
+                    }
+                    //定义位移值
+                    var target = -slidepic * parseInt(slideW);
+                    //移动图片
+                    animatezdy($("#slideimg")[0], target, function () {
+                        flag = true;
+                    })
+                }
+            }
+        })
+    </script>
+    <script type="text/javascript" src="script/Other.js"></script>
+
+</head>
+<body>
+<div class="box">
+    <!--顶部轮播图-->
+    <div class="nav_t" id="topPart">
+        <div class="slidebox" id="slidebox">
+            <!--视窗-->
+            <div class="slidescreen">
+                <!--图片集-->
+                <ul id="slideimg">
+                    <li><img src="slideimg/light_banner1.jpg" alt=""/>
+
+                        <div class="slidecom" id="slidecom">
+                            <img src="slideimg/diannao1.png" id="slidediannao" alt=""/>
+                            <img src="slideimg/ind1tp1.jpg" id="imdltp1" alt=""/>
+                            <img src="slideimg/ind1tp2.png" id="imdltp2" alt=""/>
+                            <img src="slideimg/ind1tp3.png" id="imdltp3" alt=""/>
+                            <img src="slideimg/ind1tp4.png" id="imdltp4" alt=""/>
+                            <img src="slideimg/ind1tp5.png" id="imdltp5" alt=""/>
+                        </div>
+                    </li>
+                    <li><img src="slideimg/light_b1.jpg" alt=""/></li>
+                    <li><img src="slideimg/light_b2.jpg" alt=""/></li>
+                    <li><img src="slideimg/light_b3.jpg" alt=""/></li>
+                    <li><img src="slideimg/light_b4.jpg" alt=""/></li>
+                </ul>
+                <!--底部按钮-->
+                <ol id="slideol"></ol>
+                <!--左右按钮-->
+                <div id="slidearr"><span id="slideleft">&lt;</span><span id="slideright">&gt;</span></div>
+            </div>
+        </div>
+    </div>
+    <!--顶部轮播图结束-->
+    <div class="nav" id="navBar">
+        <div id="navleft"></div>
+        <div class="w t_cen">
+            <div class="t_c_logo"><a href="index.html"><img src="images/logo.png"/></a></div>
+            <div class="t_c_lr t_c_left" id="navleftimg"></div>
+            <div class="t_c_cen">
+                <!--<div class="t_c_top">-->
+                <!--</div>-->
+                <div class="t_c_bottom">
+                    <ul>
+                        <li class="thisli">
+                            <a href="#"><em>官方首页</em><i>Home</i></a>
+                        </li>
+                        <li>
+                            <a href="#"><em>集团概况</em><i>About Us</i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png"/>
+                                <ul>
+                                    <li><a href="#">公司简介</a></li>
+                                    <li><a href="#">总部扶持</a></li>
+                                    <li><a href="#">服务团队</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><em>品牌中心</em><i>Brand</i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png"/>
+                                <ul>
+                                    <li><a href="#">品牌文化</a></li>
+                                    <li><a href="#">市场前景</a></li>
+                                    <li><a href="#">品牌形象</a></li>
+                                    <li><a href="#">店面形象</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><em>产品中心</em><i>Product </i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png"/>
+                                <ul>
+                                    <li><a href="#">产品案例</a></li>
+                                    <li><a href="#">核心产品</a></li>
+                                    <li><a href="#">主流产品</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><em>项目优势</em><i>Advantages</i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png"/>
+                                <ul>
+                                    <li><a href="#">产品优势</a></li>
+                                    <li><a href="#">投资优势</a></li>
+                                    <li><a href="#">店面优势</a></li>
+                                    <li><a href="#">总部优势</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><em>加盟我们</em><i>Join Us</i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png"/>
+                                <ul>
+                                    <li><a href="#">加盟模式</a></li>
+                                    <li><a href="#">加盟流程</a></li>
+                                    <li><a href="#">成功案例</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><em>新闻中心</em><i>News</i></a>
+
+                            <div class="Nodes">
+                                <img src="images/menu_top.png">
+                                <ul>
+                                    <li><a href="#">品牌新闻</a></li>
+                                    <li><a href="#">行业新闻</a></li>
+                                </ul>
+                                <img src="images/menu_bottom.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="wjIndex.html"><em>问卷调查</em><i>Question</i></a>
+                        </li>
+                    </ul>
+                    <div class="thisMenu" id="thisMenu"></div>
+                </div>
+            </div>
+            <div class="t_c_lr t_c_right"></div>
+        </div>
+        <div id="navright"></div>
+    </div>
+    <div id="navtidai"></div>
+    <!--导航结束-->
+    <!--导航页面-->
+    <div class="navpage" id="navpageimg">
+        <img src="images/daohang1.png" alt=""/>
+    </div>
+    <!--案例展示-->
+    <div id="fengelan"></div>
+    <div id="case">
+        <img class="ourcase" src="images/case.png" alt=""/>
+
+        <div class="casebox">
+            <ul id="ul1" class="brand vertical"></ul>
+            <ul id="ul2" class="brand vertical"></ul>
+        </div>
+
+    </div>
+    <div id="fengelan"></div>
+    <!--特效-->
+    <div id="aniShow">
+        <div id="an_box">
+            <ul>
+                <li>
+                    <i class="an_mask"></i>
+                    <i class="an_iconfont">&#xe65c;</i>
+                    <!--放大镜-->
+                    <div class="an_zoom an_cnt">
+                        <div class="an_smallBox">
+                            <img src="images/an_zoom_small_1.jpg" alt=""/>
+
+                            <div class="an_zoom_mask"></div>
+                        </div>
+                        <div class="an_bigBox">
+                            <img src="images/an_zoom_1.jpg" alt=""/>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i class="an_mask"></i>
+                    <i class="an_iconfont">&#xe64c;</i>
+                    <!--拖拽-->
+                    <div class="an_drag an_cnt">
+                        <div class="an_dragHead">拖拽我</div>
+                        <div class="an_dragBody"></div>
+                    </div>
+                    <div class="an_drag_wrap">请在框内拖拽</div>
+                </li>
+                <li>
+                    <i class="an_mask"></i>
+                    <i class="an_iconfont">&#xe65f;</i>
+                    <!--小鸟游戏-->
+                    <div class="an_bird an_cnt">
+                        <img src="images/an_bird.gif" alt=""/><br/><br/>
+                        <button class="an_btn">点击后小鸟开始</button>
+                        <br/><br/>
+                        <!--<a href="anbird.html" target="_blank">上面那个还有bug，还是点我吧，谢谢</a>-->
+                    </div>
+                    <div class="an_bird_mask"></div>
+                    <div class="an_game" id="an_game">
+                        <div class="an_the_bird" id="an_the_bird"></div>
+                    </div>
+                </li>
+                <li>
+                    <i class="an_mask"></i>
+                    <i class="an_iconfont">&#xe6f9;</i>
+
+                    <div class="an_waterfall an_cnt">
+                        <a href="anwaterfall.html" target="_blank">去看瀑布流吧 <br/> <img src="images/an_waterfall.jpg"
+                                                                                     alt=""/></a>
+                    </div>
+                </li>
+                <li class="an_lastLi">
+                    <i class="an_mask"></i>
+                    <i class="an_iconfont">&#xe6bc;</i>
+
+                    <div class="an_accordion an_cnt"><a href="footer-add/footer-index.html">开屏特效</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="fengelan"></div>
+    <div id="footer">
+        <div id="ft1"></div>
+        <div id="ft3"></div>
+        <div id="ft2">
+        </div>
+        <div id="ft4"></div>
+        <div id="ft5"></div>
+        <h1>Adam Jensen</h1>
+        <p>Security Chief • Cyborg • Never asked for this</p>
+        <!--<div id="ft4">-->
+        <!-- -->
+        <!--</div>-->
+
+        <ul id="nav">
+            <li><span></span><a href="#" ></a></li>
+            <li><span></span><a href="#" ></a></li>
+            <li><span></span><a href="#" ></a></li>
+            <li><span></span><a href="#" ></a></li>
+            <li><span></span><a href="#" ></a></li>
+        </ul>
+        <div id="footlast">
+            <div class="footl1">
+                <div>
+                    <img src="images/iphone.png" alt=""/>
+                </div><i></i>
+                <div>
+                    <img src="images/iphone.png" alt=""/>
+                </div><i></i>
+                <div>
+                    <img src="images/iphone.png" alt=""/>
+                </div>
+            </div>
+            <div class="footl2">
+                <div id="ft21">
+                    <dl>
+                        <dt>服务项目</dt>
+                        <dd>定制型网站</dd>
+                        <dd>手机网站</dd>
+                        <dd>营销型网站</dd>
+                        <dd>H5网站</dd>
+                        <dd>微网站</dd>
+                    </dl>
+                    <dl>
+
+                        <dt>案例展示</dt>
+                        <dd>电子商务案例</dd>
+                        <dd>投资理财案例</dd>
+                        <dd>电子科技案例</dd>
+                        <dd>企业展示案例</dd>
+                        <dd>交流平台案例</dd>
+                    </dl>
+                    <dl>
+
+                        <dt>关于我们</dt>
+                        <dd>公司简介</dd>
+                        <dd>团队精英</dd>
+                        <dd>新闻动态</dd>
+                        <dd>客户好评</dd>
+                        <dd>客户好评</dd>
+                        <dd>建站指南</dd>
+                    </dl>
+                    <dl>
+
+                        <dt>联系我们</dt>
+                        <dd>联系方式</dd>
+                        <dd>人才招聘</dd>
+                        <dd>在线留言</dd>
+                        <dd>付款方式</dd>
+                        <dd>网站地图</dd>
+                    </dl>
+                </div>
+                <s></s>
+                <div id="ft22">
+                    <div><img src="images/chat.png" alt=""/></div>
+                    <h3>关注我们</h3>
+                    <p>微信公众号</p>
+                </div>
+
+            </div>
+        </div>
+        <div id="marks">
+            <a class="ding" href="#">返回顶部</a>
+        </div>
+
+    </div>
+
+</div>
+<!--<script src="js/footerjs.js"></script>-->
+</body>
+<script>
+    $(window).load(function () {
+        var heightcen = $(".t_c_cen").css("height");
+        $(".t_c_lr").css("height", heightcen);
+        var navleft = $("#navleftimg").offset().left
+        $("#navleft").css("width", (navleft + "px"))
+        var navright = $(window).width() - (navleft + parseInt($(".w").css("width")));
+        $("#navright").css("width", (navright + "px"));
+
+
+
+
+
+
+
+        /**
+         * Created by Administrator on 2016-05-16.
+         */
+        var step=0;
+        var footer=document.getElementById("footer");
+        var footnav=document.getElementById("nav");
+        var lis=footnav.children;
+
+        $("#marks").on("mouseenter",function () {
+            $(this).animate({
+                "left":"0"
+            },300);
+        });
+        $("#marks").on("mouseleave",function () {
+            //$(this).css("left","-5%");
+            $(this).animate({
+                "left":"-5%"
+            },300);
+        });
+//设置图片上透明效果
+        var wai=$(document).width()/5-2;
+        $("#ft1,#ft2,#ft4,#ft5,#ft3").css("width",wai+"px");
+
+//设置背景滚动效果
+        setInterval(function () {
+            step=step-1;
+            footer.style.backgroundPositionX = step + "px";
+        },20);
+//对下面的dd加上箭头
+        $("#ft21>dl>dd").prepend("<e>&gt;&nbsp;</e>");
+//对下面的dd设置动画
+        $("#ft21>dl>dd").mouseenter(function () {
+            $(this).animate({
+                "opacity":1
+            },100);
+
+
+        });
+        $("#ft21>dl>dd").mouseleave(function () {
+            $(this).animate({
+                "opacity":0.4
+            },300);
+        });
+        $(".footl1>div").css("width",($(document).width()-20)/3);
+
+
+//console.log($(document).width());
+
+
+        var json=["url(images/bird.png) center center no-repeat",
+            "url(images/f.png) center center no-repeat",
+            "url(images/zu.png) center center no-repeat",
+            "url(images/头发.png) center center no-repeat",
+            "url(images/ee1.png) center center no-repeat"];
+        for(var i=0;i<json.length;i++)
+        {
+            $("#nav>li").eq(i).children("a").css("background",json[i]);
+        }
+        for(var i=0;i<5;i++)
+        {
+            $("#nav>li").eq(i).on("mouseenter", function () {
+                //alert($(this).width());改成动画
+                $(this).children("span").addClass("fu");
+                /*$(this).css("width","65px"
+                 );*/
+                $(this).children("a").animate({
+                    "width":"70px",
+                    "height":"70px"
+
+                },200);
+            });
+            $("#nav>li").eq(i).on("mouseleave", function () {
+                //alert($(this).width());
+                $(this).children("span").removeClass("fu");
+                $(this).children("a").animate({
+                    "width":"65px",
+                    "height":"65px"
+                },200);
+            });
+        }
+
+
+
+
+
+
+
+    })
+</script>
+</html>
+
+

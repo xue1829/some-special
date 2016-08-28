@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="wjIndex.css"/>
+    <script src="jquery-1.12.2.js"></script>
+    <script src="wjindex.js"></script>
+
+</head>
+<body>
+<!--问卷调查最外层的盒子-->
+<div id="wj_wrap">
+    <div id="wj_banner">
+        <div id="wj_title">用户问卷调查：</div>
+        <!--问卷调查最里面盒子-->
+        <div class="wj-wrapper">
+            <ul class="wj-tab" id="wj_topul">
+                <li class="wj-tab-item active">用户注册</li>
+                <li class="wj-tab-item">用户评价</li>
+                <!--<li class="wj-tab-item">上帝的意见</li>-->
+            </ul>
+            <div class="wj-products">
+                <!--用户登录-->
+                <div class="wj-main wj-selected" id="wj_log">
+                    <div id="wj_ulog">
+                        <lable>用户名：</lable>
+                        <input type="text" value="请输入用户名" id="wj_username"/>
+                        <span></span><br/><br/>
+                        <lable>密 码 ：</lable>
+                        <input type="password" maxlength="16" id="wj_pwd"/><span></span>
+                        <!--<em>密码强度：</em>-->
+                        <em id="strength"></em>
+                        <span id="strengthLevel" class="strengthLv0"></span><br/><br/>
+                        <lable>性 别 :</lable>
+                        <input type="radio" name="gender" checked="checked"> 男
+                        <input type="radio" name="gender"> 女 <br/><br/>
+                        <lable>邮 箱 ：</lable>
+                        <input type="text" name="" id="wj_Main_Email"/><span></span> <br/><br/>
+                        <lable>QQ号码：</lable>
+                        <input type="text" id="wj_main_qq"/><span></span><br/><br/>
+                        <lable>手机号：</lable>
+                        <input type="text" id="wj_main_phone"/><span></span><br/><br/>
+                        <lable>座机号：</lable>
+                        <input type="text" id="wj_main_tel"/><span></span><br/><br/>
+
+                        <!--<button id="">注册并登陆</button>-->
+                        <input type="image" src="images/reg.jpg" id="wj_btnLog"/>
+                    </div>
+                </div>
+                <!--用户评价-->
+                <div class="wj-main " id="wj_judge">
+                    <marquee behavior="alternate" direction="left">
+                        <div id="wj_logName">欢迎&nbsp;&nbsp; <span id="wj_logspan"></span>
+                            &nbsp;&nbsp;对我们的服务进行评价
+                        </div>
+                    </marquee>
+                    <div id="wj_judge_content">
+                        <p>1.您选择我们的主要原因是：</p>
+
+                        <select id="src-city" name="src-city" multiple>
+                            <option value="1">朱丹很帅</option>
+                            <option value="2">组里有美女</option>
+                            <option value="3">看我们顺眼</option>
+                            <option value="4">有实力</option>
+                            <option value="5">性价比高</option>
+                            <option value="6">我们是好人</option>
+                            <option value="6">诚信度高</option>
+                            <option value="7">价格便宜</option>
+                            <option value="8">闭眼选的</option>
+                        </select>
+
+                        <div class="wj-btn-box">
+                            <!--实体字符-->
+                            <button id="btn-sel-all"> 全选</button>
+                            <br/>
+                            <button id="btn-sel-none"> 反选</button>
+                            <br/>
+                            <button id="btn-sel"> 选择选中项</button>
+                            <br/>
+                            <button id="btn-back"> 反选选中项</button>
+                        </div>
+                        <select id="wj_tar-city" name="tar-city" multiple>
+                        </select>
+                        <br/><br/>
+
+                        <p>2.请写下您的宝贵意见：</p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <textarea name="" id="wj_pro_tarea" cols="30" rows="5"></textarea>
+
+                        <!--用户具体意见-->
+
+
+                        <!--星级评分-->
+                        <div id="wj_comment">
+                            <p>3.请您为我们打个分吧，给个五分好评吧！！！</p>
+                            <ul class="comment">
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>
+                            </ul>
+                            <span id="wj_pingFen"></span>
+                        </div>
+                        <br/>
+                        <button id="wj_backTofirst">返回到注册页面</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="wj_pro_tijiao">提交</button>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--t提交按钮点击后效果-->
+
+    </div>
+
+    <div id="wj_tijiao" class="wj-tijiao">
+        感谢您的评价
+            <a id="wj_closeBtn" href="javascript:void(0);" class="wj-close-login">关闭</a>
+    </div>
+</div>
+</body>
+</html>

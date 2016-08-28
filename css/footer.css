@@ -1,0 +1,241 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+
+#footer{
+    width: 100%;
+    height: 878px;
+    background: url("../images/bg.jpg") ;
+    position: relative;
+
+}
+
+#ft1{
+    /*width: 448px;*/
+    background-color: white;
+    opacity: 0.15;
+    height:500px;
+    float: left;
+    border-right: 1px dotted #eee ;
+}
+#ft2{
+    /*width: 500px;*/
+    background-color: white;
+    opacity: 0.2;
+    height:500px;
+    float: left;
+    border-right: 1px dotted #eee ;
+}
+#ft3{
+    /*width: 448px;*/
+    background-color: white;
+    opacity: 0.1;
+    height:500px;
+    float: left;
+    border-right: 1px dotted #eee ;
+}
+#ft4{
+    /*width: 448px;*/
+    background-color: white;
+    opacity: 0.1;
+    height:500px;
+    float: left;
+    border-right: 1px dotted #eee ;
+}
+#ft5{
+    /*width: 448px;*/
+    background-color: white;
+    opacity: 0.15;
+    height:500px;
+    float: left;
+    border-right: 1px dotted #eee ;
+}
+
+#footer h1{
+    margin-top: 90px;
+    font-size: 4.35em;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1em;
+    color:white;
+    position: absolute;
+    left:37%;
+    top:0;
+}
+#footer p{
+    font-size: 1.25em;
+    margin-top: 82px;
+    opacity: 0.75;
+    position: absolute;
+    left:32%;
+    top:12%;
+    font-weight: 900;
+    color:white;
+}
+#nav{
+    margin-top: 280px;
+    left:33%;
+    list-style: none;
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    /*background-color: red;*/
+    padding-top: 5px;
+}
+#nav li{
+    list-style: none;
+    display: inline-block;
+    height: 70px;
+    line-height: 5.885em;
+    margin-right: 10px;
+    position: relative;
+    width: 70px;
+    padding-right: 10px;
+    /*background-color: black;*/
+
+}
+#footer #nav a{
+
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    width:65px;
+    height:65px;
+    border-radius:65px;
+    border:1px solid white;
+    position: absolute;
+}
+
+.fu{
+    width:71px;
+    height:71px;
+    border-radius:75px;
+    position: absolute;
+    background-color: white;
+    opacity: 0.4;
+
+}
+#footlast{
+    position: absolute;
+    bottom: 0;
+    height:378px;
+    text-align: center;
+    width:100%;
+    background-color:#2A2A2A;
+}
+.footl1{
+    width: 100%;
+    height:106px;
+    border-bottom: 1px solid #464646;
+}
+.footl1 div{
+    /*应该根据分辨率来调宽度*/
+    /*width:440px;*/
+    height:106px;
+    float: left;
+
+    text-align: center;
+
+
+}
+#footer i{
+    background: url("../images/shu.png") no-repeat;
+    float: left;
+    width:10px;
+    height:108px;
+
+}
+#footer s{
+    background: url("../images/iphone1.png") no-repeat;
+    float: left;
+    width:10px;
+    height:213px;
+}
+#ft21{
+    width:69%;
+    height:213px;
+    float: left;
+
+}
+#ft21 dl{
+    margin-left: 8%;
+    text-align: left;
+    width: 158px;
+    height:213px;
+    float: left;
+
+
+}
+#ft21 dl dt{
+    color:white;
+
+    height:60px;
+    font: 20px "微软雅黑";
+    line-height: 60px;
+    cursor: pointer;
+}
+#ft21 dl dd{
+    color:white;
+    opacity: 0.4;
+
+    height:26px;
+    font: 14px "微软雅黑";
+    cursor: pointer;
+}
+#ft22{
+    width:30%;
+    height:213px;
+    /*background-color: blue;*/
+    float: left;
+    text-align: center;
+    position: relative;
+}
+#ft22 div{
+    width: 275px;
+    height: 112px;
+    border: 2px solid #32302C;
+    text-align: center;
+    margin:25px auto;
+    padding-top: 20px;
+
+}
+#ft22 p{
+    position: absolute;
+    font-size: 14px;
+    left:40%;
+    top:35%;
+}
+#ft22 h3{
+    position: absolute;
+    left:40%;
+    top:9%;
+    color:#C09E5B;
+}
+#footer e{
+    font-size: 16px;
+}
+#marks{
+    width:70px;
+    height:300px;
+    background:url("../images/footerdi.jpg") 70% 70% ;
+    position: absolute;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    left:-3%;
+    top:60%;
+
+}
+.ding{
+    display: block;
+    margin-top: 130px;
+    font-size: 16px;
+    color:cornflowerblue;
+}
+.ding:hover{
+    color:white;
+}
