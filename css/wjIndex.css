@@ -97,7 +97,7 @@ s, i, em {
 #wj_banner{
     width: 1024px;
     height: 554px;
-    background-image:url(images/02.jpg);
+    background-image:url(../images/02.jpg);
     margin:0 auto;
     padding-top: 52px;
 
@@ -151,7 +151,7 @@ s, i, em {
     width: 1002px;
     border: 1px solid #ddd;
     height: 476px;
-    background: url("images/xia.jpg");
+    background: url("../images/xia.jpg");
     /*background-color: silver;*/
     border-radius: 5px 36px 0 0;
 }
@@ -304,7 +304,7 @@ s, i, em {
     height: 40px;
     margin-top: 15px;
     border-radius: 8px;
-    background: url("images/bgc.png") center;
+    background: url("../images/bgc.png") center;
 }
 
 /*提交按钮*/
